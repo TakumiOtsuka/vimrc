@@ -1,0 +1,9 @@
+scriptencoding utf-8
+
+
+if has('win32')
+  set printfont=Ricty\ Diminished\ Discord:h12
+  set guifont=Ricty\ Diminished\ Discord:h12
+endif
+
+colorscheme desert
