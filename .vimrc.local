@@ -1,4 +1,4 @@
 if has('path_extra')
   let s:rc_path = expand('<sfile>:p:h')
-  set tags+=./*/tags;
+  setlocal tags+=./*/tags;
 endif
