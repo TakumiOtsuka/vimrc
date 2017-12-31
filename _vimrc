@@ -117,11 +117,29 @@ highlight LineNr ctermfg=darkyellow
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
 let g:indent_guides_enable_on_vim_startup = 1
 
+"--------------------------------------------------------------------------
+"言語毎のインデント設定
+"--------------------------------------------------------------------------
+augroup vimrc
+autocmd FileType perl   setlocal smartindent ts=4 shiftwidth=4 tabstop=4 expandtab
+autocmd FileType python setlocal smartindent
+autocmd FileType python setlocal cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd FileType python setlocal softtabstop=4 shiftwidth=4 tabstop=8 expandtab
+"autocmd FileType python setlocal foldmethod=syntax
+autocmd FileType python setlocal commentstring=#%s
+autocmd FileType python :inoremap # X#
+autocmd FileType c      setlocal smartindent ts=2 shiftwidth=2 tabstop=2 expandtab
+autocmd FileType cpp    setlocal smartindent ts=2 shiftwidth=2 tabstop=2 expandtab
+autocmd FileType cc     setlocal smartindent ts=2 shiftwidth=2 tabstop=2 expandtab
+autocmd FileType java   setlocal smartindent ts=2 shiftwidth=2 tabstop=2 expandtab
+autocmd FileType ruby   setlocal smartindent ts=2 shiftwidth=2 tabstop=2 expandtab
+augroup END
+
 
 " Windowsの場合フォントをRictyに指定
 if has('win32')
-  set printfont=Ricty\ Diminished\ Discord:h12
-  set guifont=Ricty\ Diminished\ Discord:h12
+  set printfont=Ricty\ Diminished\ Discord:h13.5
+  set guifont=Ricty\ Diminished\ Discord:h13.5
 endif
 
 " Load settings for each location.
