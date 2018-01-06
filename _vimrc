@@ -1,6 +1,8 @@
 "NeoBundle Scripts
 if has('vim_starting')
-  set nocompatible " Be iMproved
+  if &compatible
+    set nocompatible " Be iMproved
+  endif
   " Required:
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
@@ -11,6 +13,7 @@ call neobundle#begin(expand('~/.vim/bundle/'))
 " Let NeoBundle manage NeoBundle
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
+
 
 " ファイルオープンを便利に
 " Required:
@@ -45,6 +48,7 @@ filetype plugin indent on
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
+
 """""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""
@@ -72,6 +76,8 @@ set wildmenu
 set showcmd
 " バックアップディレクトリの指定
 set backupdir=$HOME/.vimbackup
+" アンドゥファイルディレクトリの指定
+set undodir=$HOME/.vimundo
 " バッファで開いているファイルのディレクトリでエクスプローラを開始する
 set browsedir=buffer
 " 小文字のみで検索したときに大文字小文字を無視する
@@ -112,6 +118,8 @@ syntax on
 colorscheme desert
 " 行番号の色
 highlight LineNr ctermfg=darkyellow
+" ビープ音を鳴らさない
+set visualbell t_vb=
 """""""""""""""""""""""""""""""
 
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする

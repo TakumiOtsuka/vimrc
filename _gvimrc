@@ -7,3 +7,6 @@ if has('win32')
 endif
 
 colorscheme desert
+
+" ƒr[ƒv‰¹‚ğ–Â‚ç‚³‚È‚¢
+set visualbell t_vb=
