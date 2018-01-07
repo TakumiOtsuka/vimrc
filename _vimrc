@@ -1,53 +1,44 @@
-"NeoBundle Scripts
-if has('vim_starting')
-  if &compatible
-    set nocompatible " Be iMproved
-  endif
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
+" 挙動をvi互換ではなく、Vimのデフォルト設定にする
+set nocompatible " Be iMproved
+" 一旦ファイルタイプ関連を無効化する
+filetype off
+
+set runtimepath+=~/.vim/bundle/dein.vim
 
 " Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
+call dein#begin(expand('~/.vim/bundle/dein.vim'))
 
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+call dein#add('Shougo/dein.vim')
 
+call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
 " ファイルオープンを便利に
-" Required:
-NeoBundle 'Shougo/unite.vim'
+call dein#add('Shougo/unite.vim')
 " Unite.vimで最近使ったファイルを表示できるようにする
-NeoBundle 'Shougo/neomru.vim'
+call dein#add('Shougo/neomru.vim')
 " ファイルをtree表示してくれる
-NeoBundle 'scrooloose/nerdtree'
+call dein#add('scrooloose/nerdtree')
 " Gitを便利に使う
-NeoBundle 'tpope/vim-fugitive'
-
+call dein#add('tpope/vim-fugitive')
 
 " コメントON/OFFを手軽に実行
-NeoBundle 'tomtom/tcomment_vim'
-" シングルクオートとダブルクオートおｎ入れ替え等
-NeoBundle 'tpope/vim-surround'
+call dein#add('tomtom/tcomment_vim')
+" シングルクオートとダブルクオート入れ替え等
+call dein#add('tpope/vim-surround')
 
 " インデントに色をつけて見えやすくする
-NeoBundle 'nathanaelkane/vim-indent-guides'
+call dein#add('nathanaelkane/vim-indent-guides')
 " ログファイルを色づけしてくれる
-NeoBundle 'vim-scripts/AnsiEsc.vim'
+call dein#add('vim-scripts/AnsiEsc.vim')
 " 行末の半角スペースを可視化
-NeoBundle 'bronson/vim-trailing-whitespace'
+call dein#add('bronson/vim-trailing-whitespace')
 " less用のsyntaxハイライト
-NeoBundle 'KohPoll/vim-less'
+call dein#add('KohPoll/vim-less')
 
-call neobundle#end()
+call dein#end()
 
 " Required:
 filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
 
 """""""""""""""""""""""""""""""
 
