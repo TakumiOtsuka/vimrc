@@ -12,6 +12,8 @@ call dein#add('Shougo/dein.vim')
 
 call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
+" 整形ツール
+call dein#add('junegunn/vim-easy-align')
 " ファイルオープンを便利に
 call dein#add('Shougo/unite.vim')
 " Unite.vimで最近使ったファイルを表示できるようにする
@@ -115,6 +117,8 @@ set visualbell t_vb=
 
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
 let g:indent_guides_enable_on_vim_startup = 1
+" vim-easy-alignの設定
+vmap <Enter> <Plug>(EasyAlign)
 
 "--------------------------------------------------------------------------
 "言語毎のインデント設定
