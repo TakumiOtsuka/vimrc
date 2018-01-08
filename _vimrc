@@ -150,6 +150,12 @@ if has('win32')
   set guifont=Ricty\ Diminished\ Discord:h13.5
 endif
 
+" Linuxの場合もフォントをRictyに指定
+if has('unix')
+  set printfont=Ricty\ Diminished\ Discord\ 13
+  set guifont=Ricty\ Diminished\ Discord\ 13
+endif
+
 " Load settings for each location.
 augroup vimrc-local
   autocmd!
