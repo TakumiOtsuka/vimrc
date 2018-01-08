@@ -39,6 +39,11 @@ call dein#add('KohPoll/vim-less')
 
 call dein#end()
 
+" 未インストールのものがあればインストールする
+if dein#check_install()
+  call dein#install()
+endif
+
 " Required:
 filetype plugin indent on
 
