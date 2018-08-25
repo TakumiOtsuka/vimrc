@@ -118,6 +118,9 @@ colorscheme desert
 highlight LineNr ctermfg=darkyellow
 " ビープ音を鳴らさない
 set visualbell t_vb=
+"
+set guioptions-=m
+set guioptions-=T
 """""""""""""""""""""""""""""""
 
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする

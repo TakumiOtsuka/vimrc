@@ -10,3 +10,6 @@ colorscheme desert
 
 " ƒr[ƒv‰¹‚ğ–Â‚ç‚³‚È‚¢
 set visualbell t_vb=
+"
+set guioptions-=m
+set guioptions-=T
