@@ -1,6 +1,6 @@
-" ‹““®‚ğviŒİŠ·‚Å‚Í‚È‚­AVim‚ÌƒfƒtƒHƒ‹ƒgİ’è‚É‚·‚é
+" æŒ™å‹•ã‚’viäº’æ›ã§ã¯ãªãã€Vimã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆè¨­å®šã«ã™ã‚‹
 set nocompatible " Be iMproved
-" ˆê’Uƒtƒ@ƒCƒ‹ƒ^ƒCƒvŠÖ˜A‚ğ–³Œø‰»‚·‚é
+" ä¸€æ—¦ãƒ•ã‚¡ã‚¤ãƒ«ã‚¿ã‚¤ãƒ—é–¢é€£ã‚’ç„¡åŠ¹åŒ–ã™ã‚‹
 filetype off
 
 set runtimepath+=~/.vim/bundle/dein.vim
@@ -12,34 +12,55 @@ call dein#add('Shougo/dein.vim')
 
 call dein#add('Shougo/vimproc.vim', {'build': 'make'})
 
-" ®Œ`ƒc[ƒ‹
+" æ•´å½¢ãƒ„ãƒ¼ãƒ«
 call dein#add('junegunn/vim-easy-align')
-" ƒtƒ@ƒCƒ‹ƒI[ƒvƒ“‚ğ•Ö—˜‚É
+" ãƒ•ã‚¡ã‚¤ãƒ«ã‚ªãƒ¼ãƒ—ãƒ³ã‚’ä¾¿åˆ©ã«
 call dein#add('Shougo/unite.vim')
-" Unite.vim‚ÅÅ‹ßg‚Á‚½ƒtƒ@ƒCƒ‹‚ğ•\¦‚Å‚«‚é‚æ‚¤‚É‚·‚é
+" Unite.vimã§æœ€è¿‘ä½¿ã£ãŸãƒ•ã‚¡ã‚¤ãƒ«ã‚’è¡¨ç¤ºã§ãã‚‹ã‚ˆã†ã«ã™ã‚‹
 call dein#add('Shougo/neomru.vim')
-" ƒtƒ@ƒCƒ‹‚ğtree•\¦‚µ‚Ä‚­‚ê‚é
+" ãƒ•ã‚¡ã‚¤ãƒ«ã‚’treeè¡¨ç¤ºã—ã¦ãã‚Œã‚‹
 call dein#add('scrooloose/nerdtree')
-" Git‚ğ•Ö—˜‚Ég‚¤
+" Gitã‚’ä¾¿åˆ©ã«ä½¿ã†
 call dein#add('tpope/vim-fugitive')
 
-" ƒRƒƒ“ƒgON/OFF‚ğèŒy‚ÉÀs
+" ã‚³ãƒ¡ãƒ³ãƒˆON/OFFã‚’æ‰‹è»½ã«å®Ÿè¡Œ
 call dein#add('tomtom/tcomment_vim')
-" ƒVƒ“ƒOƒ‹ƒNƒI[ƒg‚Æƒ_ƒuƒ‹ƒNƒI[ƒg“ü‚ê‘Ö‚¦“™
+" ã‚·ãƒ³ã‚°ãƒ«ã‚¯ã‚ªãƒ¼ãƒˆã¨ãƒ€ãƒ–ãƒ«ã‚¯ã‚ªãƒ¼ãƒˆå…¥ã‚Œæ›¿ãˆç­‰
 call dein#add('tpope/vim-surround')
 
-" ƒCƒ“ƒfƒ“ƒg‚ÉF‚ğ‚Â‚¯‚ÄŒ©‚¦‚â‚·‚­‚·‚é
+" ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã«è‰²ã‚’ã¤ã‘ã¦è¦‹ãˆã‚„ã™ãã™ã‚‹
 call dein#add('nathanaelkane/vim-indent-guides')
-" ƒƒOƒtƒ@ƒCƒ‹‚ğF‚Ã‚¯‚µ‚Ä‚­‚ê‚é
+" ãƒ­ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ã‚’è‰²ã¥ã‘ã—ã¦ãã‚Œã‚‹
 call dein#add('vim-scripts/AnsiEsc.vim')
-" s––‚Ì”¼ŠpƒXƒy[ƒX‚ğ‰Â‹‰»
+" è¡Œæœ«ã®åŠè§’ã‚¹ãƒšãƒ¼ã‚¹ã‚’å¯è¦–åŒ–
 call dein#add('bronson/vim-trailing-whitespace')
-" less—p‚ÌsyntaxƒnƒCƒ‰ƒCƒg
+" lessç”¨ã®syntaxãƒã‚¤ãƒ©ã‚¤ãƒˆ
 call dein#add('KohPoll/vim-less')
+" PlantUMLç”¨ã®syntaxãƒã‚¤ãƒ©ã‚¤ãƒˆ
+call dein#add('aklt/plantuml-syntax')
+" Markdownç”¨ã®syntaxãƒã‚¤ãƒ©ã‚¤ãƒˆ
+call dein#add('plasticboy/vim-markdown')
+" todo.txtç”¨ã®ãƒ—ãƒ©ã‚°ã‚¤ãƒ³
+call dein#add('freitass/todo.txt-vim')
+" pythonã®ã‚³ãƒ¼ãƒ‰ã‚’pep8ã®ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã«å¯¾å¿œ
+call dein#add('Vimjas/vim-python-pep8-indent')
+
+" ã‚ã„ã¾ã„æ¤œç´¢ç”¨ãƒ—ãƒ©ã‚°ã‚¤ãƒ³
+call dein#add('junegunn/fzf', { 'do': './install --bin' })
+call dein#add('junegunn/fzf.vim')
+
+" haskellç”¨ã®ãƒ—ãƒ©ã‚°ã‚¤ãƒ³
+" hakellç”¨ã‚·ãƒ³ã‚¿ãƒƒã‚¯ã‚¹ãƒã‚¤ãƒ©ã‚¤ãƒˆ
+call dein#add('dag/vim2hs')
+" haskellç”¨ãƒ—ãƒ©ã‚°ã‚¤ãƒ³
+call dein#add('neovimhaskell/haskell-vim')
+
+" éåŒæœŸã§linterã‚’å®Ÿè¡Œã—ã¦ãã‚Œã‚‹ãƒ—ãƒ©ã‚°ã‚¤ãƒ³
+call dein#add('dense-analysis/ale')
 
 call dein#end()
 
-" –¢ƒCƒ“ƒXƒg[ƒ‹‚Ì‚à‚Ì‚ª‚ ‚ê‚ÎƒCƒ“ƒXƒg[ƒ‹‚·‚é
+" æœªã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã®ã‚‚ã®ãŒã‚ã‚Œã°ã‚¤ãƒ³ã‚¹ãƒˆãƒ¼ãƒ«ã™ã‚‹
 if dein#check_install()
   call dein#install()
 endif
@@ -50,86 +71,86 @@ filetype plugin indent on
 """""""""""""""""""""""""""""""
 
 """""""""""""""""""""""""""""""
-" ŠeíƒIƒvƒVƒ‡ƒ“‚Ìİ’è
+" å„ç¨®ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã®è¨­å®š
 """""""""""""""""""""""""""""""
-" ƒ^ƒOƒtƒ@ƒCƒ‹‚Ìw’è
-set tags=~/.tags
-" ƒXƒƒbƒvƒtƒ@ƒCƒ‹‚Íg—p‚µ‚È‚¢
+" ã‚¿ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ã®æŒ‡å®š
+set tags=~/tags
+" ã‚¹ãƒ¯ãƒƒãƒ—ãƒ•ã‚¡ã‚¤ãƒ«ã¯ä½¿ç”¨ã—ãªã„
 set noswapfile
-" ƒJ[ƒ\ƒ‹‚ª‰½s–Ú‚Ì‰½—ñ–Ú‚É’u‚©‚ê‚Ä‚¢‚é‚©‚ğ•\¦‚·‚é
+" ã‚«ãƒ¼ã‚½ãƒ«ãŒä½•è¡Œç›®ã®ä½•åˆ—ç›®ã«ç½®ã‹ã‚Œã¦ã„ã‚‹ã‹ã‚’è¡¨ç¤ºã™ã‚‹
 set ruler
-" ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“‚Ég‚í‚ê‚é‰æ–Êã‚Ìs”
+" ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ã«ä½¿ã‚ã‚Œã‚‹ç”»é¢ä¸Šã®è¡Œæ•°
 set cmdheight=2
-" ƒGƒfƒBƒ^ƒEƒBƒ“ƒhƒE‚Ì––”ö‚©‚ç2s–Ú‚ÉƒXƒe[ƒ^ƒXƒ‰ƒCƒ“‚ğí•\¦‚³‚¹‚é
+" ã‚¨ãƒ‡ã‚£ã‚¿ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®æœ«å°¾ã‹ã‚‰2è¡Œç›®ã«ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ãƒ©ã‚¤ãƒ³ã‚’å¸¸æ™‚è¡¨ç¤ºã•ã›ã‚‹
 set laststatus=2
-" ƒXƒe[ƒ^ƒXs‚É•\¦‚³‚¹‚éî•ñ‚Ìw’è
+" ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹è¡Œã«è¡¨ç¤ºã•ã›ã‚‹æƒ…å ±ã®æŒ‡å®š
 set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
-" ƒXƒe[ƒ^ƒXs‚ÉŒ»İ‚Ìgitƒuƒ‰ƒ“ƒ`‚ğ•\¦‚·‚é
+" ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹è¡Œã«ç¾åœ¨ã®gitãƒ–ãƒ©ãƒ³ãƒã‚’è¡¨ç¤ºã™ã‚‹
 set statusline+=%{fugitive#statusline()}
-" ƒEƒBƒ“ƒhƒE‚Ìƒ^ƒCƒgƒ‹ƒo[‚Éƒtƒ@ƒCƒ‹‚ÌƒpƒXî•ñ‚È‚Ç‚ğ•\¦‚·‚é
+" ã‚¦ã‚£ãƒ³ãƒ‰ã‚¦ã®ã‚¿ã‚¤ãƒˆãƒ«ãƒãƒ¼ã«ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‘ã‚¹æƒ…å ±ãªã©ã‚’è¡¨ç¤ºã™ã‚‹
 set title
-" ƒRƒ}ƒ“ƒhƒ‰ƒCƒ“ƒ‚[ƒh‚Å<tab>ƒL[‚É‚æ‚éƒtƒ@ƒCƒ‹–¼•âŠ®‚ğ—LŒø‚É‚·‚é
+" ã‚³ãƒãƒ³ãƒ‰ãƒ©ã‚¤ãƒ³ãƒ¢ãƒ¼ãƒ‰ã§<tab>ã‚­ãƒ¼ã«ã‚ˆã‚‹ãƒ•ã‚¡ã‚¤ãƒ«åè£œå®Œã‚’æœ‰åŠ¹ã«ã™ã‚‹
 set wildmenu
-" “ü—Í’†‚ÌƒRƒ}ƒ“ƒh‚ğ•\¦‚·‚é
+" å…¥åŠ›ä¸­ã®ã‚³ãƒãƒ³ãƒ‰ã‚’è¡¨ç¤ºã™ã‚‹
 set showcmd
-" ƒoƒbƒNƒAƒbƒvƒfƒBƒŒƒNƒgƒŠ‚Ìw’è
+" ãƒãƒƒã‚¯ã‚¢ãƒƒãƒ—ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®æŒ‡å®š
 set backupdir=$HOME/.vimbackup
-" ƒAƒ“ƒhƒDƒtƒ@ƒCƒ‹ƒfƒBƒŒƒNƒgƒŠ‚Ìw’è
+" ã‚¢ãƒ³ãƒ‰ã‚¥ãƒ•ã‚¡ã‚¤ãƒ«ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®æŒ‡å®š
 set undodir=$HOME/.vimundo
-" ƒoƒbƒtƒ@‚ÅŠJ‚¢‚Ä‚¢‚éƒtƒ@ƒCƒ‹‚ÌƒfƒBƒŒƒNƒgƒŠ‚ÅƒGƒNƒXƒvƒ[ƒ‰‚ğŠJn‚·‚é
+" ãƒãƒƒãƒ•ã‚¡ã§é–‹ã„ã¦ã„ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã§ã‚¨ã‚¯ã‚¹ãƒ—ãƒ­ãƒ¼ãƒ©ã‚’é–‹å§‹ã™ã‚‹
 set browsedir=buffer
-" ¬•¶š‚Ì‚İ‚ÅŒŸõ‚µ‚½‚Æ‚«‚É‘å•¶š¬•¶š‚ğ–³‹‚·‚é
+" å°æ–‡å­—ã®ã¿ã§æ¤œç´¢ã—ãŸã¨ãã«å¤§æ–‡å­—å°æ–‡å­—ã‚’ç„¡è¦–ã™ã‚‹
 set smartcase
-" ŒŸõŒ‹‰Ê‚ğƒnƒCƒ‰ƒCƒg•\¦‚·‚é
+" æ¤œç´¢çµæœã‚’ãƒã‚¤ãƒ©ã‚¤ãƒˆè¡¨ç¤ºã™ã‚‹
 set hlsearch
-" ˆÃ‚¢”wŒiF‚É‚ ‚í‚¹‚½”zF‚É‚·‚é
+" æš—ã„èƒŒæ™¯è‰²ã«ã‚ã‚ã›ãŸé…è‰²ã«ã™ã‚‹
 set background=dark
-" ƒ^ƒu“ü—Í‚ğ•¡”‚Ì‹ó”’“ü—Í‚É’u‚«Š·‚¦‚é
+" ã‚¿ãƒ–å…¥åŠ›ã‚’è¤‡æ•°ã®ç©ºç™½å…¥åŠ›ã«ç½®ãæ›ãˆã‚‹
 set expandtab
-" ŒŸõƒ[ƒh‚ÌÅ‰‚Ì•¶š‚ğ“ü—Í‚µ‚½“_‚ÅŒŸõ‚ğŠJn‚·‚é
+" æ¤œç´¢ãƒ¯ãƒ¼ãƒ‰ã®æœ€åˆã®æ–‡å­—ã‚’å…¥åŠ›ã—ãŸæ™‚ç‚¹ã§æ¤œç´¢ã‚’é–‹å§‹ã™ã‚‹
 set incsearch
-" •Û‘¶‚³‚ê‚Ä‚¢‚È‚¢ƒtƒ@ƒCƒ‹‚ª‚ ‚é‚Æ‚«‚Å‚à•Ê‚Ìƒtƒ@ƒCƒ‹‚ğŠJ‚¯‚é‚æ‚¤‚É‚·‚é
+" ä¿å­˜ã•ã‚Œã¦ã„ãªã„ãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã‚‹ã¨ãã§ã‚‚åˆ¥ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ã‘ã‚‹ã‚ˆã†ã«ã™ã‚‹
 set hidden
-" •s‰Â‹•¶š‚ğ•\¦‚µ‚È‚¢
+" ä¸å¯è¦–æ–‡å­—ã‚’è¡¨ç¤ºã—ãªã„
 set nolist
-" ƒ^ƒu‚Æs‚Ì‘±‚«‚ğ‰Â‹‰»‚·‚é
+" ã‚¿ãƒ–ã¨è¡Œã®ç¶šãã‚’å¯è¦–åŒ–ã™ã‚‹
 set listchars=tab:>\ ,extends:<
-" s”Ô†‚ğ•\¦‚·‚é
+" è¡Œç•ªå·ã‚’è¡¨ç¤ºã™ã‚‹
 set number
-" ‘Î‰‚·‚éŠ‡ŒÊ‚âƒuƒŒ[ƒX‚ğ•\¦‚·‚é
+" å¯¾å¿œã™ã‚‹æ‹¬å¼§ã‚„ãƒ–ãƒ¬ãƒ¼ã‚¹ã‚’è¡¨ç¤ºã™ã‚‹
 set showmatch
-" ŠJ‹Æ‚É‘O‚Ìs‚ÌƒCƒ“ƒfƒ“ƒg‚ğŒp‘±‚·‚é
+" é–‹æ¥­æ™‚ã«å‰ã®è¡Œã®ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’ç¶™ç¶šã™ã‚‹
 set autoindent
-" ‰üs‚É“ü—Í‚³‚ê‚½‹Æ‚Ì––”ö‚É‡‚í‚¹‚ÄŸ‚Ìs‚ÌƒCƒ“ƒfƒ“ƒg‚ğ‘Œ¸‚·‚é
+" æ”¹è¡Œæ™‚ã«å…¥åŠ›ã•ã‚ŒãŸæ¥­ã®æœ«å°¾ã«åˆã‚ã›ã¦æ¬¡ã®è¡Œã®ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã‚’å¢—æ¸›ã™ã‚‹
 set smartindent
-" ƒ^ƒu•¶š‚Ì•\¦•
+" ã‚¿ãƒ–æ–‡å­—ã®è¡¨ç¤ºå¹…
 set tabstop=2
-" Vim‰æ‘}“ü‚·‚éƒCƒ“ƒfƒ“ƒg‚Ì•
+" Vimç”»æŒ¿å…¥ã™ã‚‹ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã®å¹…
 set shiftwidth=2
-" s“ª‚Ì—]”’“à‚Å Tab ‚ğ‘Å‚¿‚Ş‚ÆA'shiftwidth'‚Ì”‚¾‚¯ƒCƒ“ƒfƒ“ƒg‚·‚é
+" è¡Œé ­ã®ä½™ç™½å†…ã§ Tab ã‚’æ‰“ã¡è¾¼ã‚€ã¨ã€'shiftwidth'ã®æ•°ã ã‘ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆã™ã‚‹
 set smarttab
-" ƒJ[ƒ\ƒ‹‚ğs“ªAs––‚Å‚Æ‚Ü‚ç‚È‚¢‚æ‚¤‚É‚·‚é
+" ã‚«ãƒ¼ã‚½ãƒ«ã‚’è¡Œé ­ã€è¡Œæœ«ã§ã¨ã¾ã‚‰ãªã„ã‚ˆã†ã«ã™ã‚‹
 set whichwrap=b,s,h,l,<,>,[,]
-" \•¶–ˆ‚É•¶šF‚ğ•Ï‰»‚³‚¹‚é
+" æ§‹æ–‡æ¯ã«æ–‡å­—è‰²ã‚’å¤‰åŒ–ã•ã›ã‚‹
 syntax on
-" ƒJƒ‰[ƒXƒL[ƒ}‚Ìw’è
+" ã‚«ãƒ©ãƒ¼ã‚¹ã‚­ãƒ¼ãƒã®æŒ‡å®š
 colorscheme desert
-" s”Ô†‚ÌF
+" è¡Œç•ªå·ã®è‰²
 highlight LineNr ctermfg=darkyellow
-" ƒr[ƒv‰¹‚ğ–Â‚ç‚³‚È‚¢
+" ãƒ“ãƒ¼ãƒ—éŸ³ã‚’é³´ã‚‰ã•ãªã„
 set visualbell t_vb=
 "
 set guioptions-=m
 set guioptions-=T
 """""""""""""""""""""""""""""""
 
-" vim‚ğ—§‚¿ã‚°‚½‚Æ‚«‚ÉA©“®“I‚Évim-indent-guides‚ğƒIƒ“‚É‚·‚é
+" vimã‚’ç«‹ã¡ä¸Šã’ãŸã¨ãã«ã€è‡ªå‹•çš„ã«vim-indent-guidesã‚’ã‚ªãƒ³ã«ã™ã‚‹
 let g:indent_guides_enable_on_vim_startup = 1
-" vim-easy-align‚Ìİ’è
+" vim-easy-alignã®è¨­å®š
 vmap <Enter> <Plug>(EasyAlign)
 
 "--------------------------------------------------------------------------
-"Œ¾Œê–ˆ‚ÌƒCƒ“ƒfƒ“ƒgİ’è
+"è¨€èªæ¯ã®ã‚¤ãƒ³ãƒ‡ãƒ³ãƒˆè¨­å®š
 "--------------------------------------------------------------------------
 augroup vimrc
 autocmd FileType perl   setlocal smartindent ts=4 shiftwidth=4 tabstop=4 expandtab
@@ -144,19 +165,35 @@ autocmd FileType cpp    setlocal smartindent ts=2 shiftwidth=2 tabstop=2 expandt
 autocmd FileType cc     setlocal smartindent ts=2 shiftwidth=2 tabstop=2 expandtab
 autocmd FileType java   setlocal smartindent ts=2 shiftwidth=2 tabstop=2 expandtab
 autocmd FileType ruby   setlocal smartindent ts=2 shiftwidth=2 tabstop=2 expandtab
+autocmd FileType haskell setlocal smartindent ts=2 shiftwidth=2 tabstop=2 expandtab
 augroup END
 
 
-" Windows‚Ìê‡ƒtƒHƒ“ƒg‚ğRicty‚Éw’è
+" Windowsã®å ´åˆãƒ•ã‚©ãƒ³ãƒˆã‚’Rictyã«æŒ‡å®š
 if has('win32')
   set printfont=Ricty\ Diminished\ Discord:h13.5
   set guifont=Ricty\ Diminished\ Discord:h13.5
-endif
-
-" Linux‚Ìê‡‚àƒtƒHƒ“ƒg‚ğRicty‚Éw’è
-if has('unix')
+" Macã®å ´åˆã¯ãƒ•ã‚©ãƒ³ãƒˆã‚’Osakaãƒ•ã‚©ãƒ³ãƒˆã«è¨­å®š
+elseif has('mac')
+  set printfont=Osaka-Mono:h18
+  set guifont=Osaka-Mono:h18
+" Linuxã®å ´åˆã¯ãƒ•ã‚©ãƒ³ãƒˆã‚’Rictyã«æŒ‡å®š
+elseif has('unix')
   set printfont=Ricty\ Diminished\ Discord\ 13
   set guifont=Ricty\ Diminished\ Discord\ 13
+endif
+
+" grepã‚’ripgrepã‚’ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã«
+if executable('rg')
+  set grepprg=rg\ --vimgrep\ --no-heading
+  set grepformat=%f:%l:%c:%m,%f:%l:%m
+endif
+
+" Uniteã§ä½¿ç”¨ã™ã‚‹grepã‚’ripgrepã«
+if executable('rg')
+  let g:unite_source_grep_command = 'rg'
+  let g:unite_source_grep_default_opts = '-n --no-heading --color never'
+  let g:unite_source_grep_recursive_opt = ''
 endif
 
 " Load settings for each location.
@@ -169,9 +206,19 @@ function! s:vimrc_local(loc)
   let files = findfile('.vimrc.local', escape(a:loc, ' ') . ';', -1)
   for i in reverse(filter(files, 'filereadable(v:val)'))
     source `=i`
+    let s:rc_path = fnamemodify(i, ":h")
   endfor
 endfunction
 
-" filetype‚Ì©“®ŒŸo(ÅŒã‚Ì‚Ù‚¤‚É‘‚¢‚½‚Ù‚¤‚ª‚¢‚¢‚ç‚µ‚¢)
+function! s:prj_grep(keyword, path) abort
+  if executable('rg')
+    execute 'grep' "-i" a:keyword "-g" a:path s:rc_path
+  else
+    execute 'vimgrep' a:keyword s:rc_path . "**/" . a:path
+  endif
+  cwindow
+endfunction
+command! -nargs=+ -complete=file Pgrep call s:prj_grep(<f-args>)
+" filetypeã®è‡ªå‹•æ¤œå‡º(æœ€å¾Œã®ã»ã†ã«æ›¸ã„ãŸã»ã†ãŒã„ã„ã‚‰ã—ã„)
 filetype on
 
