@@ -1,15 +1,4 @@
-scriptencoding utf-8
-
-" Windowsの場合はフォントをRictyにしておく
-if has('win32')
-  set printfont=Ricty\ Diminished\ Discord:h13.5
-  set guifont=Ricty\ Diminished\ Discord:h13.5
-endif
-
-colorscheme desert
-
-" ビープ音を鳴らさない
-set visualbell t_vb=
-"
-set guioptions-=m
-set guioptions-=T
+set guifont=PlemolJP_Console:h14
+set antialias
+set renderoptions=type:directx
+set ambiwidth=double

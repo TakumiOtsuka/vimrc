@@ -63,6 +63,9 @@ call dein#add('dense-analysis/ale')
 " プロジェクトのルートを自動で検索する
 call dein#add('mattn/vim-findroot')
 
+" Vue用syntax
+call dein#add('posva/vim-vue')
+
 call dein#end()
 
 " 未インストールのものがあればインストールする
@@ -139,15 +142,17 @@ set backspace=indent,eol,start
 " 構文毎に文字色を変化させる
 syntax on
 " カラースキーマの指定
-set termguicolors
+silent! set termguicolors
 colorscheme desert
+" 全角文字幅の設定
+set ambiwidth=double
 " 行番号の色
 highlight LineNr ctermfg=darkyellow
 " ビープ音を鳴らさない
 set visualbell t_vb=
 " Gvim時、メニュー、ツールバーを非表示にする
-set guioptions-=m
-set guioptions-=T
+"set guioptions-=m
+"set guioptions-=T
 """""""""""""""""""""""""""""""
 
 "-----------------------------------------------------------------------------
@@ -167,12 +172,20 @@ vmap <Enter> <Plug>(EasyAlign)
 "---------
 " Lsp設定
 "---------
+" LSP関連のショートカット設定
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
   setlocal signcolumn=yes
+  if exists('+tagfunc')
+    setlocal tagfunc=lsp#tagfunc
+  endif
+
   nmap <buffer> gd <plug>(lsp-definition)
+  nmap <buffer> gr <plug>(lsp-references)
+  nmap <buffer> K <plug>(lsp-hover)
+  nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+  nmap <buffer> ]g <plug>(lsp-next-diagnostic)
   nmap <buffer> <f2> <plug>(lsp-rename)
-  inoremap <expr> <cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
 endfunction
 
 augroup lsp_install
@@ -181,7 +194,7 @@ augroup lsp_install
 augroup END
 command! LspDebug let lsp_log_verbose=1 | let lsp_log_file = expand('~/lsp.log')
 
-let g:lsp_diagnostics_enable = 1
+let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_echo_cursor = 1
 let g:asyncomplete_auto_popup = 1
 "let g:asyncomplete_auto_completeopt = 0
@@ -195,6 +208,8 @@ if executable('rg')
   let g:unite_source_grep_recursive_opt = ''
 endif
 
+" vim-vueの設定
+let g:vue_pre_processors = 'detect_on_enter'
 "--------------------------------------------------------------------------
 "言語毎の設定
 "--------------------------------------------------------------------------
@@ -233,60 +248,71 @@ if executable('rg')
 endif
 
 
-" Load settings for each location.
-augroup vimrc-local
-  autocmd!
-  autocmd BufNewFile,BufReadPost * call s:vimrc_local(expand('<afile>:p:h'))
-augroup END
+function! s:project_root() abort
+  let l:dir = expand('%:p:h')
+  if empty(l:dir)
+    let l:dir = getcwd()
+  endif
 
-function! s:vimrc_local(loc)
-  let files = findfile('.vimrc.local', escape(a:loc, ' ') . ';', -1)
-  for i in reverse(filter(files, 'filereadable(v:val)'))
-    source `=i`
-    let s:rc_path = fnamemodify(i, ":h")
+  for l:marker in ['.git', '.hg', '.svn', 'package.json', 'pyproject.toml', 'Cargo.toml', 'go.mod']
+    let l:marker_path = finddir(l:marker, l:dir . ';')
+    if !empty(l:marker_path)
+      return fnamemodify(l:marker_path, ':p:h:h')
+    endif
+
+    let l:marker_path = findfile(l:marker, l:dir . ';')
+    if !empty(l:marker_path)
+      return fnamemodify(l:marker_path, ':p:h')
+    endif
   endfor
+
+  return getcwd()
 endfunction
 
 function! s:prj_grep(keyword, path) abort
-  if executable('rg')
-    execute 'grep' "-i" a:keyword "-g" a:path s:rc_path
-  else
-    execute 'vimgrep' a:keyword s:rc_path . "**/" . a:path
+  let l:path = substitute(a:path, '\\', '/', 'g')
+  if l:path =~# '/$'
+    let l:path .= '**'
   endif
+  execute 'grep' '-i' shellescape(a:keyword) '-g' shellescape(l:path) shellescape(s:project_root())
   cwindow
 endfunction
-command! -nargs=+ -complete=file Pgrep call s:prj_grep(<f-args>)
+command! -nargs=+ -complete=customlist,CompletionPgrep Pgrep call s:prj_grep(<f-args>)
 
-command! -nargs=+ -complete=customlist,CompletionGitCommands Git call GitCommand(<q-args>)
-function! CompletionGitCommands(ArgLead, CmdLine, CursorPos)
-  let l:cmd = split(a:CmdLine)
-  let l:len_cmd = len(l:cmd)
-  if l:len_cmd <= 1
-    " Commands name completion.
-    let l:filter_cmd = printf('v:val =~ "^%s"', a:ArgLead)
-    return filter(['add', 'bisect', 'branch', 'checkout', 'clone', 'commit', 'diff', 'fetch'
-          \'grep', 'init', 'log', 'merge', 'mv', 'pull', 'push', 'rebase', 'reset', 'rm',
-          \'show', 'status', 'tag'], l:filter_cmd)
-  else
-    " Commands argments completion.
-    let l:cmdname = l:cmd[1]
-    if l:cmdname == 'add' || l:cmdname == 'mv' || l:cmdname == 'rm'
-      let l:arg = get(l:cmd, 2, '')
-      return split(glob(l:arg, '*'), '\n')
-    else
-      return[]
+command! -nargs=+ -complete=customlist,CompletionPgrep Tgrep call s:prj_grep(<f-args>)
+function! s:complete_project_path(arglead) abort
+  let l:root = substitute(fnamemodify(s:project_root(), ':p'), '\\', '/', 'g')
+  if l:root !~# '/$'
+    let l:root .= '/'
+  endif
+
+  let l:lead = substitute(a:arglead, '\\', '/', 'g')
+  let l:candidates = []
+  for l:path in glob(l:root . l:lead . '*', 0, 1)
+    let l:normalized = substitute(fnamemodify(l:path, ':p'), '\\', '/', 'g')
+    if stridx(l:normalized, l:root) != 0
+      continue
+    endif
+
+    let l:relative_path = l:normalized[len(l:root):]
+    if empty(l:relative_path)
+      continue
+    endif
+    if isdirectory(l:path) && l:relative_path !~# '/$'
+      let l:relative_path .= '/'
+    endif
+    call add(l:candidates, l:relative_path)
+  endfor
+
+  return sort(l:candidates)
 endfunction
 
-command! -nargs=+ -complete=customlist,CompletionPgrep Tgrep call s:prj_grep(<q-args>)
 function! CompletionPgrep(ArgLead, CmdLine, CursorPos)
-  let l:cmd = split(a:CmdLine)
-  let l:len_cmd = len(l:cmd)
+  if a:CmdLine !~# '^\S\+\s\+\S\+\s'
+    return []
+  endif
 
-  if l:len_cmd > 1
-    let l:arg = get(l:cmd, 1, '')
-    return split(glob(s:rc_path . '/' . l:arg . '*'), '\n')
-  else
-    return[]
+  return s:complete_project_path(a:ArgLead)
 endfunction
 
 " filetypeの自動検出(最後のほうに書いたほうがいいらしい)
