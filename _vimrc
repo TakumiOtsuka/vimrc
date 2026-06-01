@@ -57,9 +57,6 @@ call dein#add('Vimjas/vim-python-pep8-indent')
 call dein#add('junegunn/fzf', { 'do': './install --bin' })
 call dein#add('junegunn/fzf.vim')
 
-" 非同期でlinterを実行してくれるプラグイン
-call dein#add('dense-analysis/ale')
-
 " プロジェクトのルートを自動で検索する
 call dein#add('mattn/vim-findroot')
 
