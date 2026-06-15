@@ -3,65 +3,53 @@ set nocompatible " Be iMproved
 " 一旦ファイルタイプ関連を無効化する
 filetype off
 
-" プラグインマネージャの設定
-set runtimepath+=~/.vim/bundle/dein.vim
-
-" Required:
-call dein#begin(expand('~/.vim/bundle/dein.vim'))
-
-call dein#add('Shougo/dein.vim')
-
+call plug#begin()
 
 " vim-lsp関係
-call dein#add('prabirshrestha/asyncomplete.vim')
-call dein#add('prabirshrestha/asyncomplete-lsp.vim')
-call dein#add('prabirshrestha/vim-lsp')
-call dein#add('mattn/vim-lsp-settings')
-call dein#add('mattn/vim-lsp-icons')
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
+Plug 'mattn/vim-lsp-icons'
 
-call dein#add('hrsh7th/vim-vsnip')
-call dein#add('hrsh7th/vim-vsnip-integ')
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
 
 " 整形ツール
-call dein#add('junegunn/vim-easy-align')
+Plug 'junegunn/vim-easy-align'
 
 " Gitを便利に使う
-call dein#add('tpope/vim-fugitive')
+Plug 'tpope/vim-fugitive'
 
 " コメントON/OFFを手軽に実行
-call dein#add('tomtom/tcomment_vim')
+Plug 'tomtom/tcomment_vim'
 " シングルクオートとダブルクオート入れ替え等
-call dein#add('tpope/vim-surround')
+Plug 'tpope/vim-surround'
 " Markdownプレビュー用
-call dein#add('mattn/previm')
+Plug 'mattn/previm'
 
 " インデントに色をつけて見えやすくする
-call dein#add('nathanaelkane/vim-indent-guides')
+Plug 'nathanaelkane/vim-indent-guides'
 " 行末の半角スペースを可視化
-call dein#add('bronson/vim-trailing-whitespace')
+Plug 'bronson/vim-trailing-whitespace'
 " PlantUML用のsyntaxハイライト
-call dein#add('aklt/plantuml-syntax')
+Plug 'aklt/plantuml-syntax'
 " todo.txt用のプラグイン
-call dein#add('freitass/todo.txt-vim')
+Plug 'freitass/todo.txt-vim'
 " pythonのコードをpep8のインデントに対応
-call dein#add('Vimjas/vim-python-pep8-indent')
+Plug 'Vimjas/vim-python-pep8-indent'
 
 " あいまい検索用プラグイン
-call dein#add('junegunn/fzf', { 'merged': 0 })
-call dein#add('junegunn/fzf.vim', { 'merged': 0 })
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 
 " プロジェクトのルートを自動で検索する
-call dein#add('mattn/vim-findroot')
+Plug 'mattn/vim-findroot'
 
 " Vue用syntax
-call dein#add('posva/vim-vue')
+Plug 'posva/vim-vue'
 
-call dein#end()
-
-" 未インストールのものがあればインストールする
-if dein#check_install()
-  call dein#install()
-endif
+call plug#end()
 
 " Required:
 filetype plugin indent on
