@@ -97,6 +97,7 @@ set undofile
 set browsedir=buffer
 " 'ignorecase'との併用時、大文字を含む検索では大文字小文字を区別する
 set smartcase
+set ignorecase
 " 検索結果をハイライト表示する
 set hlsearch
 " 暗い背景色にあわせた配色にする
@@ -148,6 +149,11 @@ set visualbell t_vb=
 "-----------------------------------------------------------------------------
 " 各プラグインの設定
 "-----------------------------------------------------------------------------
+"-------------------
+" previm
+"-------------------
+let g:previm_open_cmd = 'start Firefox'
+let g:previm_enable_realtime = 1
 " ------------------
 " vim-indent-guides
 " ------------------
@@ -212,17 +218,17 @@ let g:vue_pre_processors = 'detect_on_enter'
 "言語毎の設定
 "--------------------------------------------------------------------------
 augroup vimrc
+autocmd!
 autocmd FileType perl   setlocal smartindent ts=4 shiftwidth=4 tabstop=4 expandtab
 autocmd FileType python setlocal cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd FileType python setlocal smartindent softtabstop=4 shiftwidth=4 tabstop=4 expandtab
 autocmd FileType python setlocal commentstring=#%s
 autocmd FileType c      setlocal smartindent ts=2 shiftwidth=2 tabstop=2 expandtab
 autocmd FileType cpp    setlocal smartindent ts=2 shiftwidth=2 tabstop=2 expandtab
-autocmd FileType cc     setlocal smartindent ts=2 shiftwidth=2 tabstop=2 expandtab
 autocmd FileType java   setlocal smartindent ts=2 shiftwidth=2 tabstop=2 expandtab
 autocmd FileType ruby   setlocal smartindent ts=2 shiftwidth=2 tabstop=2 expandtab
 autocmd FileType haskell setlocal smartindent ts=2 shiftwidth=2 tabstop=2 expandtab
-autocmd FileType Makefile setlocal smartindent ts=4 shiftwidth=4 tabstop=4 noexpandtab
+autocmd FileType make setlocal smartindent ts=4 shiftwidth=4 tabstop=4 noexpandtab
 augroup END
 
 
