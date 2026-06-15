@@ -25,13 +25,6 @@ call dein#add('hrsh7th/vim-vsnip-integ')
 " 整形ツール
 call dein#add('junegunn/vim-easy-align')
 
-" ファイルオープンを便利に
-call dein#add('Shougo/unite.vim')
-" Unite.vimで最近使ったファイルを表示できるようにする
-call dein#add('Shougo/neomru.vim')
-
-call dein#add('Shougo/vimproc.vim')
-
 " Gitを便利に使う
 call dein#add('tpope/vim-fugitive')
 
@@ -54,8 +47,8 @@ call dein#add('freitass/todo.txt-vim')
 call dein#add('Vimjas/vim-python-pep8-indent')
 
 " あいまい検索用プラグイン
-call dein#add('junegunn/fzf', { 'do': './install --bin' })
-call dein#add('junegunn/fzf.vim')
+call dein#add('junegunn/fzf', { 'merged': 0 })
+call dein#add('junegunn/fzf.vim', { 'merged': 0 })
 
 " プロジェクトのルートを自動で検索する
 call dein#add('mattn/vim-findroot')
@@ -100,6 +93,8 @@ set showcmd
 set backupdir=$HOME/.vimbackup
 " アンドゥファイルディレクトリの指定
 set undodir=$HOME/.vimundo
+" 永続アンドゥ設定
+set undofile
 " バッファで開いているファイルのディレクトリでエクスプローラを開始する
 set browsedir=buffer
 " 小文字のみで検索したときに大文字小文字を無視する
@@ -198,13 +193,6 @@ let g:asyncomplete_auto_popup = 1
 let g:asyncomplete_popup_delay = 200
 let g:lsp_text_edit_enabled = 1
 
-" Uniteで使用するgrepをripgrepに
-if executable('rg')
-  let g:unite_source_grep_command = 'rg'
-  let g:unite_source_grep_default_opts = '-n --no-heading --color never'
-  let g:unite_source_grep_recursive_opt = ''
-endif
-
 " vim-vueの設定
 let g:vue_pre_processors = 'detect_on_enter'
 "--------------------------------------------------------------------------
@@ -224,19 +212,6 @@ autocmd FileType haskell setlocal smartindent ts=2 shiftwidth=2 tabstop=2 expand
 autocmd FileType Makefile setlocal smartindent ts=4 shiftwidth=4 tabstop=4 noexpandtab
 augroup END
 
-" Windowsの場合フォントをRictyに指定
-if has('win32')
-  set printfont=Ricty\ Diminished\ Discord:h13.5
-  set guifont=Ricty\ Diminished\ Discord:h13.5
-" Macの場合はフォントをOsakaフォントに設定
-elseif has('mac')
-  set printfont=Osaka-Mono:h18
-  set guifont=Osaka-Mono:h18
-" Linuxの場合はフォントをRictyに指定
-elseif has('unix')
-  set printfont=Ricty\ Diminished\ Discord\ 13
-  set guifont=Ricty\ Diminished\ Discord\ 13
-endif
 
 " grepをripgrepをデフォルトに
 if executable('rg')

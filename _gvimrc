@@ -1,4 +1,17 @@
-set guifont=PlemolJP_Console:h14
+" Windowsの場合フォントをPlemolJPに指定
+if has('win32')
+  set guifont=PlemolJP_Console:h14
+  set printfont=PlemolJP_Console:h14
+" Macの場合はフォントをOsakaフォントに設定
+elseif has('mac')
+  set printfont=Osaka-Mono:h18
+  set guifont=Osaka-Mono:h18
+" Linuxの場合はフォントをRictyに指定
+elseif has('unix')
+  set printfont=Ricty\ Diminished\ Discord\ 13
+  set guifont=Ricty\ Diminished\ Discord\ 13
+endif
+
 set antialias
 set renderoptions=type:directx
 set ambiwidth=double
