@@ -34,7 +34,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-surround'
 " Markdownをブラウザでプレビューする
 Plug 'tyru/open-browser.vim'
-Plug 'mattn/previm', { 'branch': 'fix-urlopen' }
+Plug 'previm/previm'
 
 " インデントの深さを色分けして表示する
 Plug 'nathanaelkane/vim-indent-guides'
