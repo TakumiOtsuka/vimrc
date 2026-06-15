@@ -33,7 +33,8 @@ Plug 'tomtom/tcomment_vim'
 " 括弧、クォート、HTMLタグなどの囲み文字を追加・変更・削除する
 Plug 'tpope/vim-surround'
 " Markdownをブラウザでプレビューする
-Plug 'mattn/previm'
+Plug 'tyru/open-browser.vim'
+Plug 'mattn/previm', { 'branch': 'fix-urlopen' }
 
 " インデントの深さを色分けして表示する
 Plug 'nathanaelkane/vim-indent-guides'
@@ -152,7 +153,6 @@ set visualbell t_vb=
 "-------------------
 " previm
 "-------------------
-let g:previm_open_cmd = 'start Firefox'
 let g:previm_enable_realtime = 1
 " ------------------
 " vim-indent-guides
